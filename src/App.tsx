@@ -1,10 +1,11 @@
-import './App.css'
 import Home from './routes/home'
 
 function App() {
   return (
     <>
-      <Home />
+      <section className="h-screen flex items-center">
+        <Home />
+      </section>
     </>
   )
 }

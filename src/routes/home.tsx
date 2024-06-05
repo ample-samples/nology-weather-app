@@ -21,7 +21,7 @@ const Home = () => {
       })
     }
   }
-)
+  )
 
   const getWeatherData = async (): Promise<WeatherData | undefined> => {
     if (!location.latitude || !location.longitude) {
@@ -41,13 +41,15 @@ const Home = () => {
 
   return (
     <>
-      {now.getHours() < 12 ? <h1>Good morning</h1> : <h1>Good afternoon</h1>}
+      <section className='m-auto flex-row justify-center'>
+        {now.getHours() < 12 ? <h1 className='text-4xl text-center'>Good morning</h1> : <h1>Good afternoon</h1>}
 
 
-      <p>In {weatherData?.location.name}, the weather right now is {weatherData?.current.condition.text.toLowerCase()}</p>
-      {weatherData?.current.condition.icon &&
-      <img src={weatherData.current.condition.icon} alt="" />
-      }
+        <p className='text-2xl text-center'>In {weatherData?.location.name}, the weather right now is {weatherData?.current.condition.text.toLowerCase()}</p>
+        {weatherData?.current.condition.icon &&
+          <img className='mx-auto' src={weatherData.current.condition.icon} alt="" />
+        }
+      </section>
     </>
   )
 }
